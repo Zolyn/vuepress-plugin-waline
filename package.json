@@ -1,0 +1,11 @@
+{
+  "name": "@zolyn/vuepress-plugin-waline",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": "Zorin",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "@waline/client": "^0.14.8"
+  }
+}

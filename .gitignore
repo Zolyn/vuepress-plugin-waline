@@ -1,0 +1,8 @@
+## IDE
+.idea
+
+## lock file
+yarn.lock
+
+## node modules
+node_modules
