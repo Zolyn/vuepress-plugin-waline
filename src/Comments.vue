@@ -3,9 +3,6 @@
 </template>
 
 <script>
-const Waline = require('@waline/client');
-const MiniValine = require('minivaline');
-
 export default {
     data() {
         return {
@@ -14,60 +11,67 @@ export default {
         };
     },
     mounted() {
-        this.initComment();
-        this.$router.afterEach((to, from) => {
-            if (to.path !== from.path) {
-                console.log('DEBUG: Path changed.');
-                this.initComment();
-            } else {
-                console.log('DEBUG: Page refreshed.');
-            }
+        const instance = this;
+        this.$nextTick(() => {
+            initComment()
         });
-    },
-    methods: {
-        initComment() {
+
+        this.$router.afterEach((to, from) => {
+            this.$nextTick(() => {
+                if (to.path !== from.path) {
+                    console.log(`DEBUG: Path changed: ${from.path} -> ${to.path}`);
+                    initComment();
+                }
+            });
+        });
+
+        function initComment() {
             const post = document.querySelector('.page');
             let commentContainer = document.querySelector('#comment-wrapper');
-            if (post && !this.$frontmatter.disableComment) {
+            if (post && !instance.$frontmatter.disableComment) {
                 if (commentContainer) {
                     post.removeChild(commentContainer);
                 }
                 commentContainer = document.createElement('div');
                 commentContainer.id = 'comment-wrapper';
                 post.appendChild(commentContainer);
-                switch (this.commentSystem) {
+                switch (instance.commentSystem) {
                     case 'waline': {
-                        this.createWaline();
+                        createWaline();
                         break;
                     }
                     case 'minivaline': {
-                        this.createMiniValine();
+                        createMiniValine();
                         break;
                     }
                     default: {
-                        this.createWaline();
+                        createWaline();
                         break;
                     }
                 }
             }
-        },
-        createWaline() {
+        }
+
+        function createWaline() {
+            const Waline = require('@waline/client');
             // eslint-disable-next-line no-new
             new Waline({
                 el: '#comment-wrapper',
                 // eslint-disable-next-line no-undef
                 ...COMMENT_OPTIONS.config,
             });
-        },
-        createMiniValine() {
+        }
+
+        function createMiniValine() {
+            const MiniValine = require('minivaline');
             // eslint-disable-next-line no-new
             new MiniValine({
                 el: '#comment-wrapper',
                 // eslint-disable-next-line no-undef
                 ...COMMENT_OPTIONS.config,
             });
-        },
-    },
+        }
+    }
 };
 </script>
 
