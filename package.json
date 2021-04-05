@@ -7,5 +7,6 @@
   "devDependencies": {},
   "dependencies": {
     "@waline/client": "^0.14.8"
-  }
+  },
+  "repository": "https://github.com/Zolyn/vuepress-plugin-waline.git"
 }
