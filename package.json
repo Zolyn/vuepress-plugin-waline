@@ -1,12 +1,24 @@
 {
-  "name": "@zolyn/vuepress-plugin-waline",
-  "version": "1.0.1",
-  "main": "index.js",
-  "author": "Zorin",
-  "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {
-    "@waline/client": "^0.14.8"
-  },
-  "repository": "https://github.com/Zolyn/vuepress-plugin-waline.git"
+    "name": "@zolyn/vuepress-plugin-waline",
+    "version": "1.1.0-beta.1",
+    "main": "index.js",
+    "author": "Zorin",
+    "license": "MIT",
+    "scripts": {
+        "lint": "eslint ./*.js ./src/*.js ./src/*.vue",
+        "format": "prettier --write ./*.js ./src/*.js ./*.json ./src/*.vue"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.23.0",
+        "eslint-config-alloy": "^3.10.0",
+        "eslint-plugin-vue": "^7.8.0",
+        "prettier": "^2.2.1",
+        "vue-eslint-parser": "^7.6.0"
+    },
+    "dependencies": {
+        "@waline/client": "^0.14.8",
+        "minivaline": "^5.1.7"
+    },
+    "repository": "https://github.com/Zolyn/vuepress-plugin-waline.git"
 }
