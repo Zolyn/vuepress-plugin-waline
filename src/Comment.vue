@@ -9,7 +9,10 @@ const MiniValine = require('minivaline');
 export default {
     data() {
         return {
-            config: PLUGIN_CONFIG,
+            id: PLUGIN_CONFIG.id || 'comment-wrapper',
+            pNode: PLUGIN_CONFIG.parentNode || '.page',
+            type: PLUGIN_CONFIG.type || 'Waline',
+            isDebug: PLUGIN_CONFIG.debug || false,
             comment: COMMENT_CONFIG
         }
     },
@@ -19,7 +22,9 @@ export default {
             this.$router.afterEach((to, from) => {
                 this.$nextTick(() => {
                     if (to.path !== from.path) {
-                        console.log(`DEBUG: Path changed: ${from.path} -> ${to.path}`);
+                        if (this.isDebug) {
+                            console.log(`DEBUG: Path changed: ${from.path} -> ${to.path}`);
+                        }
                         this.initComment();
                     }
                 });
@@ -28,21 +33,20 @@ export default {
     },
     methods: {
         initComment() {
-            const post = document.querySelector(this.config.parentNode);
-            const { id } = this.config;
+            const post = document.querySelector(this.pNode);
             if (post && !this.$frontmatter.disableComment) {
-                let commentContainer = document.querySelector(`#${id}`);
+                let commentContainer = document.querySelector(`#${this.id}`);
                 if (commentContainer) {
                     post.removeChild(commentContainer);
                 }
                 commentContainer = document.createElement('div');
-                commentContainer.id = id;
+                commentContainer.id = this.id;
                 post.appendChild(commentContainer);
-                switch (this.config.type) {
+                switch (this.type) {
                     case 'Waline': {
                         // eslint-disable-next-line no-new
                         new Waline({
-                            el: `#${id}`,
+                            el: `#${this.id}`,
                             ...this.comment
                         });
                         break;
@@ -50,7 +54,7 @@ export default {
                     case 'MiniValine': {
                         // eslint-disable-next-line no-new
                         new MiniValine({
-                            el: `#${id}`,
+                            el: `#${this.id}`,
                             ...this.comment
                         });
                         break;
@@ -59,6 +63,9 @@ export default {
                         console.log('ERROR: Unsupported comment type.');
                         break;
                     }
+                }
+                if (this.isDebug) {
+                    console.log(`DEBUG: Comment initialized. [${Math.floor(Math.random() * 100)}]`);
                 }
             }
         }
