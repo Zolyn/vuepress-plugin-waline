@@ -1,5 +1,5 @@
 <template>
-    <div id="@zolyn/vuepress-plugin-waline" class="config.type"></div>
+    <div id="@zolyn/vuepress-plugin-waline" :class="type"></div>
 </template>
 
 <script>
@@ -73,4 +73,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="stylus">
+#comment-wrapper
+    .vpanel
+        box-shadow 0 0 8px 4px #e1e1e1
+        border-radius 12px
+        .vwrap
+            border-radius 12px
+
+</style>
