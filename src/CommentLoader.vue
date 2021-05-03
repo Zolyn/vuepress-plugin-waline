@@ -17,6 +17,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="stylus">
+#comment-wrapper
+    .vpanel
+        box-shadow 0 0 8px 4px #dcdcdc
+        border-radius 16px
+        .vwrap
+            border-radius 16px
 </style>

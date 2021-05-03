@@ -73,12 +73,5 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-#comment-wrapper
-    .vpanel
-        box-shadow 0 0 8px 4px #e1e1e1
-        border-radius 12px
-        .vwrap
-            border-radius 12px
-
+<style scoped>
 </style>
