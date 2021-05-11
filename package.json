@@ -9,12 +9,12 @@
         "format": "prettier --write ./*.js ./src/*.js ./*.json ./src/*.vue"
     },
     "devDependencies": {
-        "babel-eslint": "^10.1.0",
-        "eslint": "^7.23.0",
-        "eslint-config-alloy": "^3.10.0",
-        "eslint-plugin-vue": "^7.8.0",
-        "prettier": "^2.2.1",
-        "vue-eslint-parser": "^7.6.0"
+        "babel-eslint": "10.1.0",
+        "eslint": "7.26.0",
+        "eslint-config-alloy": "3.10.0",
+        "eslint-plugin-vue": "7.9.0",
+        "prettier": "2.3.0",
+        "vue-eslint-parser": "7.6.0"
     },
     "dependencies": {
         "@waline/client": "^0.14.8",
