@@ -11,7 +11,7 @@
     "devDependencies": {
         "babel-eslint": "10.1.0",
         "eslint": "7.26.0",
-        "eslint-config-alloy": "3.10.0",
+        "eslint-config-alloy": "4.1.0",
         "eslint-plugin-vue": "7.9.0",
         "prettier": "2.3.0",
         "vue-eslint-parser": "7.6.0"
