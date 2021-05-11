@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@waline/client": "^0.16.0",
-        "minivaline": "^5.1.7"
+        "minivaline": "^6.0.0"
     },
     "repository": "https://github.com/Zolyn/vuepress-plugin-waline.git"
 }
