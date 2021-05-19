@@ -17,7 +17,7 @@
         "vue-eslint-parser": "7.6.0"
     },
     "dependencies": {
-        "@waline/client": "^0.16.0",
+        "@waline/client": "^0.17.0",
         "minivaline": "^6.0.0"
     },
     "repository": "https://github.com/Zolyn/vuepress-plugin-waline.git"
