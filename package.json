@@ -13,12 +13,12 @@
         "eslint": "7.26.0",
         "eslint-config-alloy": "3.10.0",
         "eslint-plugin-vue": "7.9.0",
-        "minivaline": "5.1.7",
         "prettier": "2.3.0",
         "vue-eslint-parser": "7.6.0"
     },
     "dependencies": {
-        "@waline/client": "^0.17.0"
+        "@waline/client": "^0.17.0",
+        "minivaline": "5.1.7"
     },
     "repository": "https://github.com/Zolyn/vuepress-plugin-waline.git"
 }
