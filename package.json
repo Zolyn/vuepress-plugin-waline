@@ -13,7 +13,7 @@
         "eslint": "7.26.0",
         "eslint-config-alloy": "3.10.0",
         "eslint-plugin-vue": "7.9.0",
-        "minivaline": "5.1.7",
+        "minivaline": "6.1.0",
         "prettier": "2.3.0",
         "vue-eslint-parser": "7.6.0"
     },
