@@ -3,6 +3,7 @@
 
 ## lock file
 yarn.lock
+pnpm-lock.yaml
 
 ## node modules
 node_modules
