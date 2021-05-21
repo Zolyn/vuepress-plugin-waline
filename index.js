@@ -2,7 +2,7 @@ const { resolve } = require('path');
 module.exports = (opts) => ({
     define() {
         return {
-            PLUGIN_CONFIG: opts.plugin,
+            PLUGIN_CONFIG: opts.plugin || {},
             COMMENT_CONFIG: opts.comment
         };
     },

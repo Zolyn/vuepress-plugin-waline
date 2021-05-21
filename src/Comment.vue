@@ -9,9 +9,8 @@ const MiniValine = require('minivaline');
 export default {
     data() {
         return {
-            id: PLUGIN_CONFIG.id || 'comment-wrapper',
             pNode: PLUGIN_CONFIG.parentNode || '.page',
-            type: PLUGIN_CONFIG.type || 'Waline',
+            type: PLUGIN_CONFIG.type || 'waline',
             isDebug: PLUGIN_CONFIG.debug || false,
             comment: COMMENT_CONFIG
         }
@@ -25,6 +24,7 @@ export default {
                         if (this.isDebug) {
                             console.log(`DEBUG: Path changed: ${from.path} -> ${to.path}`);
                         }
+
                         this.initComment();
                     }
                 });
@@ -35,26 +35,25 @@ export default {
         initComment() {
             const post = document.querySelector(this.pNode);
             if (post && !this.$frontmatter.disableComment) {
-                let commentContainer = document.querySelector(`#${this.id}`);
+                const el = this.comment.el;
+                let commentContainer = document.querySelector(`${el}`);
                 if (commentContainer) {
                     post.removeChild(commentContainer);
                 }
+
                 commentContainer = document.createElement('div');
-                commentContainer.id = this.id;
+                commentContainer.id = el.slice(1, el.length);
                 post.appendChild(commentContainer);
                 switch (this.type) {
-                    case 'Waline': {
+                    case 'waline': {
                         // eslint-disable-next-line no-new
-                        new Waline({
-                            el: `#${this.id}`,
-                            ...this.comment
-                        });
+                        new Waline({ ...this.comment });
                         break;
                     }
-                    case 'MiniValine': {
+                    case 'minivaline': {
                         // eslint-disable-next-line no-new
                         new MiniValine({
-                            el: `#${this.id}`,
+                            backend: 'waline',
                             ...this.comment
                         });
                         break;
@@ -64,6 +63,7 @@ export default {
                         break;
                     }
                 }
+
                 if (this.isDebug) {
                     console.log(`DEBUG: Comment initialized. [${Math.floor(Math.random() * 100)}]`);
                 }
