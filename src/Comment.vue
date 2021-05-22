@@ -9,10 +9,10 @@ const MiniValine = require('minivaline');
 export default {
     data() {
         return {
-            pNode: PLUGIN_CONFIG.parentNode || '.page',
-            type: PLUGIN_CONFIG.type || 'waline',
-            isDebug: PLUGIN_CONFIG.debug || false,
-            comment: COMMENT_CONFIG
+            pNode: ZOLYN_WALINE_PLUGIN_CONFIG.parentNode || '.page',
+            type: ZOLYN_WALINE_PLUGIN_CONFIG.type || 'waline',
+            isDebug: ZOLYN_WALINE_PLUGIN_CONFIG.debug || false,
+            comment: ZOLYN_WALINE_MAIN_CONFIG
         }
     },
     mounted() {

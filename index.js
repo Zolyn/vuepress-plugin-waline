@@ -2,8 +2,8 @@ const { resolve } = require('path');
 module.exports = (opts) => ({
     define() {
         return {
-            PLUGIN_CONFIG: opts.plugin || {},
-            COMMENT_CONFIG: opts.comment
+            ZOLYN_WALINE_PLUGIN_CONFIG: opts.plugin || {},
+            ZOLYN_WALINE_MAIN_CONFIG: opts.comment
         };
     },
     name: '@Zolyn/vuepress-plugin-waline',
