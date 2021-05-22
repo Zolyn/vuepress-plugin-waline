@@ -18,10 +18,9 @@ export default {
 </script>
 
 <style lang="stylus">
-#comment-wrapper
-    .vpanel
-        box-shadow 0 0 8px 4px #dcdcdc
-        border-radius 16px
-        .vwrap
-            border-radius 16px
+.comment-wrapper
+    --waline-border none
+    --waline-box-shadow 0 2px 12px 2px #bbb
+    .vlogin-btn
+        border none !important
 </style>

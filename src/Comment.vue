@@ -17,6 +17,9 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
+            if (this.comment.dark) {
+                this.createDarkStyle();
+            }
             this.initComment();
             this.$router.afterEach((to, from) => {
                 this.$nextTick(() => {
@@ -43,6 +46,7 @@ export default {
 
                 commentContainer = document.createElement('div');
                 commentContainer.id = el.slice(1, el.length);
+                commentContainer.className = 'comment-wrapper';
                 post.appendChild(commentContainer);
                 switch (this.type) {
                     case 'waline': {
@@ -68,6 +72,11 @@ export default {
                     console.log(`DEBUG: Comment initialized. [${Math.floor(Math.random() * 100)}]`);
                 }
             }
+        },
+        createDarkStyle() {
+            const styleEle = document.createElement('style');
+            styleEle.innerText = `${this.comment.dark} .comment-wrapper {--waline-box-shadow: 0 2px 16px 2px #191919}`;
+            document.head.appendChild(styleEle);
         }
     }
 };
